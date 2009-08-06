@@ -1,0 +1,7 @@
+History.txt
+Manifest.txt
+README.rdoc
+Rakefile
+ext/cmigemo.c
+ext/extconf.rb
+test/test_cmigemo.rb

@@ -1,0 +1,7 @@
+.*.swp
+pkg/
+lib/*.so
+ext/*.so
+ext/*.o
+ext/*.log
+ext/Makefile

@@ -1,0 +1,68 @@
+= Ruby/CMigemo
+
+* http://github.com/Constellation/ruby-cmigemo
+
+== DESCRIPTION:
+
+Ruby Binding for C/Migemo
+
+== FEATURES/PROBLEMS:
+
+* get regexp text which match to Japanese phrase
+* get regexp text faster
+* load dict file which have any encoding
+
+== SYNOPSIS:
+
+  require 'cmigemo'
+  $KCODE = 'u'
+  dict_path = File.expand_path('~/dict')
+  cmigemo = CMigemo.new
+  {
+    "migemo-dict"   => CMigemo::MIGEMO,
+    "han2zen.dat"   => CMigemo::HAN2ZEN,
+    "hira2kata.dat" => CMigemo::HIRA2KATA,
+    "roma2hira.dat" => CMigemo::ROMA2HIRA,
+  }.each do |dict_file, type|
+    cmigemo.load(type, File.join(dict_path, dict_file));
+  end
+
+  # get regexp text
+  reg = Regexp.new(cmigemo.query('seiza'))
+
+  puts "match!" if "星座" =~ reg
+  puts "match!" if "正座" =~ reg
+
+== REQUIREMENTS:
+
+* C/Migemo
+
+== INSTALL:
+
+  gem source -a http://gems.github.com
+  sudo gem install Constellation-cmigemo
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2009 Constellation
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
