@@ -21,7 +21,7 @@ rb_cmigemo_s_allocate(VALUE klass)
   VALUE obj;
   struct RMigemo *rm;
   obj = Data_Make_Struct(klass, struct RMigemo, NULL, rb_cmigemo_free, rm);
-  rm->open = 1;
+  rm->open = 0;
   rm->migemo = NULL;
   return obj;
 }
