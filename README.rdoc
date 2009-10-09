@@ -39,8 +39,8 @@ Ruby Binding for C/Migemo
 
 == INSTALL:
 
-  gem source -a http://gems.github.com
-  sudo gem install Constellation-cmigemo
+  gem source -a http://gemcutter.org
+  sudo gem install cmigemo
 
 == LICENSE:
 
